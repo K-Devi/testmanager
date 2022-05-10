@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+     {% for el in created_tests %}
+        <div class="alert alert-warning mt-2">
+             <h3>{{ el.title }}</h3>
+        </div>
+    {% endfor %}
+{% endblock %}

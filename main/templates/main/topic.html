@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Темы раздела дисциплины
+{% endblock %}
+{% block form %}
+     <form method="post">
+    {% csrf_token %}
+        <br>
+        {{ form.title }}
+        <br>
+
+        <button type="submit" class="btn btn-success">Add topic</button>
+{% endblock %}
+{% block content %}
+     {% for el in topics %}
+        <div class="alert alert-warning mt-2">
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'questions' %}">{{ el.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

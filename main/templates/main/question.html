@@ -1,0 +1,23 @@
+{% extends 'main/../base.html' %}
+
+{% block title %}
+  Questions
+{% endblock %}
+
+{% block form %}
+     <form method="post">
+    {% csrf_token %}
+        <br>
+        {{ form.question }}
+        <br>
+        {{ form.type }}
+        <button type="submit" class="btn btn-success">Add question</button>
+{% endblock %}
+
+{% block content %}
+     {% for el in questions %}
+        <div class="alert alert-warning mt-2">
+             <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'topics' %}">{{ el.question }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

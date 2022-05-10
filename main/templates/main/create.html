@@ -1,0 +1,21 @@
+{% extends 'main/../base.html' %}
+
+{% block title %}
+   создать раздел
+{% endblock %}
+
+{% block form %}
+     <form method="post">
+    {% csrf_token %}
+        <br>
+        {{ form.title }}
+        <br>
+        <button type="submit" class="btn btn-success">Add section</button>
+{% endblock %}
+{% block content %}
+     {% for el in sections %}
+        <div class="alert alert-warning mt-2">
+             <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'topics' %}">{{ el.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'main/../base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    {% for el in courses %}
+        <div class="alert alert-warning mt-2">
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'sections' %}">{{ el.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
